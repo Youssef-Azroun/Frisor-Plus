@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */; };
+		315811F42BBF56E700E89481 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315811F32BBF56E700E89481 /* ContentView.swift */; };
+		315811F62BBF56F900E89481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315811F52BBF56F900E89481 /* Assets.xcassets */; };
+		315811F92BBF56F900E89481 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315811F82BBF56F900E89481 /* Preview Assets.xcassets */; };
+		315812032BBF56FB00E89481 /* Frisor_PlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315812022BBF56FB00E89481 /* Frisor_PlusTests.swift */; };
+		3158120D2BBF56FC00E89481 /* Frisor_PlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158120C2BBF56FC00E89481 /* Frisor_PlusUITests.swift */; };
+		3158120F2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158120E2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		315811FF2BBF56FB00E89481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 315811E62BBF56E600E89481 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 315811ED2BBF56E700E89481;
+			remoteInfo = "Frisor Plus";
+		};
+		315812092BBF56FC00E89481 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 315811E62BBF56E600E89481 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 315811ED2BBF56E700E89481;
+			remoteInfo = "Frisor Plus";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		315811EE2BBF56E700E89481 /* Frisor Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frisor Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusApp.swift; sourceTree = "<group>"; };
+		315811F32BBF56E700E89481 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		315811F52BBF56F900E89481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		315811F82BBF56F900E89481 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		315811FE2BBF56FB00E89481 /* Frisor PlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Frisor PlusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		315812022BBF56FB00E89481 /* Frisor_PlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusTests.swift; sourceTree = "<group>"; };
+		315812082BBF56FC00E89481 /* Frisor PlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Frisor PlusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3158120C2BBF56FC00E89481 /* Frisor_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusUITests.swift; sourceTree = "<group>"; };
+		3158120E2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		315811EB2BBF56E700E89481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315811FB2BBF56FB00E89481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315812052BBF56FC00E89481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		315811E52BBF56E600E89481 = {
+			isa = PBXGroup;
+			children = (
+				315811F02BBF56E700E89481 /* Frisor Plus */,
+				315812012BBF56FB00E89481 /* Frisor PlusTests */,
+				3158120B2BBF56FC00E89481 /* Frisor PlusUITests */,
+				315811EF2BBF56E700E89481 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		315811EF2BBF56E700E89481 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				315811EE2BBF56E700E89481 /* Frisor Plus.app */,
+				315811FE2BBF56FB00E89481 /* Frisor PlusTests.xctest */,
+				315812082BBF56FC00E89481 /* Frisor PlusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		315811F02BBF56E700E89481 /* Frisor Plus */ = {
+			isa = PBXGroup;
+			children = (
+				315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */,
+				315811F32BBF56E700E89481 /* ContentView.swift */,
+				315811F52BBF56F900E89481 /* Assets.xcassets */,
+				315811F72BBF56F900E89481 /* Preview Content */,
+			);
+			path = "Frisor Plus";
+			sourceTree = "<group>";
+		};
+		315811F72BBF56F900E89481 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				315811F82BBF56F900E89481 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		315812012BBF56FB00E89481 /* Frisor PlusTests */ = {
+			isa = PBXGroup;
+			children = (
+				315812022BBF56FB00E89481 /* Frisor_PlusTests.swift */,
+			);
+			path = "Frisor PlusTests";
+			sourceTree = "<group>";
+		};
+		3158120B2BBF56FC00E89481 /* Frisor PlusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3158120C2BBF56FC00E89481 /* Frisor_PlusUITests.swift */,
+				3158120E2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift */,
+			);
+			path = "Frisor PlusUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		315811ED2BBF56E700E89481 /* Frisor Plus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 315812122BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor Plus" */;
+			buildPhases = (
+				315811EA2BBF56E700E89481 /* Sources */,
+				315811EB2BBF56E700E89481 /* Frameworks */,
+				315811EC2BBF56E700E89481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Frisor Plus";
+			productName = "Frisor Plus";
+			productReference = 315811EE2BBF56E700E89481 /* Frisor Plus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		315811FD2BBF56FB00E89481 /* Frisor PlusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 315812152BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor PlusTests" */;
+			buildPhases = (
+				315811FA2BBF56FB00E89481 /* Sources */,
+				315811FB2BBF56FB00E89481 /* Frameworks */,
+				315811FC2BBF56FB00E89481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				315812002BBF56FB00E89481 /* PBXTargetDependency */,
+			);
+			name = "Frisor PlusTests";
+			productName = "Frisor PlusTests";
+			productReference = 315811FE2BBF56FB00E89481 /* Frisor PlusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		315812072BBF56FC00E89481 /* Frisor PlusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 315812182BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor PlusUITests" */;
+			buildPhases = (
+				315812042BBF56FC00E89481 /* Sources */,
+				315812052BBF56FC00E89481 /* Frameworks */,
+				315812062BBF56FC00E89481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3158120A2BBF56FC00E89481 /* PBXTargetDependency */,
+			);
+			name = "Frisor PlusUITests";
+			productName = "Frisor PlusUITests";
+			productReference = 315812082BBF56FC00E89481 /* Frisor PlusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		315811E62BBF56E600E89481 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					315811ED2BBF56E700E89481 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					315811FD2BBF56FB00E89481 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 315811ED2BBF56E700E89481;
+					};
+					315812072BBF56FC00E89481 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 315811ED2BBF56E700E89481;
+					};
+				};
+			};
+			buildConfigurationList = 315811E92BBF56E600E89481 /* Build configuration list for PBXProject "Frisor Plus" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 315811E52BBF56E600E89481;
+			productRefGroup = 315811EF2BBF56E700E89481 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				315811ED2BBF56E700E89481 /* Frisor Plus */,
+				315811FD2BBF56FB00E89481 /* Frisor PlusTests */,
+				315812072BBF56FC00E89481 /* Frisor PlusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		315811EC2BBF56E700E89481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315811F92BBF56F900E89481 /* Preview Assets.xcassets in Resources */,
+				315811F62BBF56F900E89481 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315811FC2BBF56FB00E89481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315812062BBF56FC00E89481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		315811EA2BBF56E700E89481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315811F42BBF56E700E89481 /* ContentView.swift in Sources */,
+				315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315811FA2BBF56FB00E89481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315812032BBF56FB00E89481 /* Frisor_PlusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		315812042BBF56FC00E89481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3158120D2BBF56FC00E89481 /* Frisor_PlusUITests.swift in Sources */,
+				3158120F2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		315812002BBF56FB00E89481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 315811ED2BBF56E700E89481 /* Frisor Plus */;
+			targetProxy = 315811FF2BBF56FB00E89481 /* PBXContainerItemProxy */;
+		};
+		3158120A2BBF56FC00E89481 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 315811ED2BBF56E700E89481 /* Frisor Plus */;
+			targetProxy = 315812092BBF56FC00E89481 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		315812102BBF56FC00E89481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		315812112BBF56FC00E89481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		315812132BBF56FC00E89481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Frisor Plus/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-Plus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		315812142BBF56FC00E89481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Frisor Plus/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-Plus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		315812162BBF56FC00E89481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-PlusTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frisor Plus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frisor Plus";
+			};
+			name = Debug;
+		};
+		315812172BBF56FC00E89481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-PlusTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frisor Plus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Frisor Plus";
+			};
+			name = Release;
+		};
+		315812192BBF56FC00E89481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-PlusUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Frisor Plus";
+			};
+			name = Debug;
+		};
+		3158121A2BBF56FC00E89481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Youssef-Azroun.Frisor-PlusUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Frisor Plus";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		315811E92BBF56E600E89481 /* Build configuration list for PBXProject "Frisor Plus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315812102BBF56FC00E89481 /* Debug */,
+				315812112BBF56FC00E89481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		315812122BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor Plus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315812132BBF56FC00E89481 /* Debug */,
+				315812142BBF56FC00E89481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		315812152BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor PlusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315812162BBF56FC00E89481 /* Debug */,
+				315812172BBF56FC00E89481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		315812182BBF56FC00E89481 /* Build configuration list for PBXNativeTarget "Frisor PlusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315812192BBF56FC00E89481 /* Debug */,
+				3158121A2BBF56FC00E89481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 315811E62BBF56E600E89481 /* Project object */;
+}
