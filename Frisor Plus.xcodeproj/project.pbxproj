@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314C12A72BC40BDE009BC923 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C12A32BC40BDE009BC923 /* UserViewModel.swift */; };
+		314C12A82BC40BDE009BC923 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C12A42BC40BDE009BC923 /* LoginView.swift */; };
+		314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C12A52BC40BDE009BC923 /* CreateAccountView.swift */; };
+		314C12AA2BC40BDE009BC923 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C12A62BC40BDE009BC923 /* User.swift */; };
 		315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */; };
 		315811F42BBF56E700E89481 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315811F32BBF56E700E89481 /* ContentView.swift */; };
 		315811F62BBF56F900E89481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315811F52BBF56F900E89481 /* Assets.xcassets */; };
@@ -25,6 +29,8 @@
 		31C946942BC3DFE4003ACF12 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946932BC3DFE4003ACF12 /* FirebaseInstallations */; };
 		31C946962BC3DFE4003ACF12 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946952BC3DFE4003ACF12 /* FirebaseMessaging */; };
 		31C946982BC3DFE4003ACF12 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946972BC3DFE4003ACF12 /* FirebaseStorage */; };
+		31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */; };
+		31E9E8632BCA581400DA41EB /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8622BCA581300DA41EB /* AdminView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		314C12A32BC40BDE009BC923 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		314C12A42BC40BDE009BC923 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		314C12A52BC40BDE009BC923 /* CreateAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		314C12A62BC40BDE009BC923 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		315811EE2BBF56E700E89481 /* Frisor Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frisor Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusApp.swift; sourceTree = "<group>"; };
 		315811F32BBF56E700E89481 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +66,8 @@
 		3158120C2BBF56FC00E89481 /* Frisor_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusUITests.swift; sourceTree = "<group>"; };
 		3158120E2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frisor_PlusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		31E9E8622BCA581300DA41EB /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +128,11 @@
 		315811F02BBF56E700E89481 /* Frisor Plus */ = {
 			isa = PBXGroup;
 			children = (
-				31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */,
+				31E9E85F2BC774A100DA41EB /* ViewModels */,
+				31E9E85E2BC7748400DA41EB /* Models */,
+				31E9E85D2BC7744E00DA41EB /* Views */,
 				315811F12BBF56E700E89481 /* Frisor_PlusApp.swift */,
-				315811F32BBF56E700E89481 /* ContentView.swift */,
+				31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */,
 				315811F52BBF56F900E89481 /* Assets.xcassets */,
 				315811F72BBF56F900E89481 /* Preview Content */,
 			);
@@ -148,6 +162,34 @@
 				3158120E2BBF56FC00E89481 /* Frisor_PlusUITestsLaunchTests.swift */,
 			);
 			path = "Frisor PlusUITests";
+			sourceTree = "<group>";
+		};
+		31E9E85D2BC7744E00DA41EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				314C12A52BC40BDE009BC923 /* CreateAccountView.swift */,
+				315811F32BBF56E700E89481 /* ContentView.swift */,
+				314C12A42BC40BDE009BC923 /* LoginView.swift */,
+				31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */,
+				31E9E8622BCA581300DA41EB /* AdminView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		31E9E85E2BC7748400DA41EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				314C12A62BC40BDE009BC923 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		31E9E85F2BC774A100DA41EB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				314C12A32BC40BDE009BC923 /* UserViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +339,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				315811F42BBF56E700E89481 /* ContentView.swift in Sources */,
+				314C12A72BC40BDE009BC923 /* UserViewModel.swift in Sources */,
+				314C12AA2BC40BDE009BC923 /* User.swift in Sources */,
+				31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */,
+				314C12A82BC40BDE009BC923 /* LoginView.swift in Sources */,
 				315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */,
+				31E9E8632BCA581400DA41EB /* AdminView.swift in Sources */,
+				314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

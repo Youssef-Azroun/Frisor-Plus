@@ -19,9 +19,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Frisor_PlusApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var userViewModel = UserViewModel() // Create an instance of UserViewModel
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userViewModel) // Pass UserViewModel as an environment object
         }
     }
 }
