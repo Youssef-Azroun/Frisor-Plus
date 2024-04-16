@@ -1,0 +1,17 @@
+   # Xcode
+   *.pbxuser
+   *.xccheckout
+   *.xcworkspace
+   !default.xcworkspace
+   xcuserdata/
+   DerivedData/
+   *.moved-aside
+   *.xcuserstate
+
+   # Build products
+   *.ipa
+   *.dSYM.zip
+   *.dSYM
+
+   # CocoaPods
+   Pods/
