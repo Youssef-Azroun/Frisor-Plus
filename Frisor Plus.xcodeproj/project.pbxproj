@@ -31,6 +31,9 @@
 		31C946982BC3DFE4003ACF12 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946972BC3DFE4003ACF12 /* FirebaseStorage */; };
 		31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */; };
 		31E9E8632BCA581400DA41EB /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8622BCA581300DA41EB /* AdminView.swift */; };
+		5F9C667A2BCFF30E006974DC /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66792BCFF30E006974DC /* Services.swift */; };
+		5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667B2BCFF489006974DC /* ServicesItem.swift */; };
+		5F9C667E2BCFF856006974DC /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667D2BCFF856006974DC /* ServicesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
 		31E9E8622BCA581300DA41EB /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		5F9C66792BCFF30E006974DC /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		5F9C667B2BCFF489006974DC /* ServicesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesItem.swift; sourceTree = "<group>"; };
+		5F9C667D2BCFF856006974DC /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 				314C12A42BC40BDE009BC923 /* LoginView.swift */,
 				31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */,
 				31E9E8622BCA581300DA41EB /* AdminView.swift */,
+				5F9C667D2BCFF856006974DC /* ServicesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				314C12A62BC40BDE009BC923 /* User.swift */,
+				5F9C66792BCFF30E006974DC /* Services.swift */,
+				5F9C667B2BCFF489006974DC /* ServicesItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,9 +351,12 @@
 				314C12A72BC40BDE009BC923 /* UserViewModel.swift in Sources */,
 				314C12AA2BC40BDE009BC923 /* User.swift in Sources */,
 				31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */,
+				5F9C667E2BCFF856006974DC /* ServicesView.swift in Sources */,
 				314C12A82BC40BDE009BC923 /* LoginView.swift in Sources */,
 				315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */,
 				31E9E8632BCA581400DA41EB /* AdminView.swift in Sources */,
+				5F9C667A2BCFF30E006974DC /* Services.swift in Sources */,
+				5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */,
 				314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
