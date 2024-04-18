@@ -22,7 +22,7 @@ struct ContentView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Button(userViewModel.isLoggedIn ? "My Account" : "Log In") {
+                    Button(userViewModel.isLoggedIn ? "Mitt konto" : "Logga In") {
                         if userViewModel.isLoggedIn {
                             userViewModel.checkIfUserIsAdmin { isAdmin in
                                 if isAdmin {
@@ -59,14 +59,14 @@ struct ContentView: View {
                             .frame(width: 150, height: 150) // Justera storleken efter behov
                     VStack{
                         HStack{
-                            Image(systemName: "mappin.and.ellipse.circle")
+                            Image(systemName: "mappin.and.ellipse")
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                             Text("Carl Krooks Gata 6\n252 25 Helsingborg")
                                 .foregroundColor(.black)
                         }
                         HStack{
-                            Image(systemName: "envelope.circle")
+                            Image(systemName: "envelope")
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                             Text("frisorplus@gmail.com")
@@ -78,7 +78,7 @@ struct ContentView: View {
                                         }
                         }
                         HStack{
-                            Image(systemName: "link.circle")
+                            Image(systemName: "link")
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                             Text("www.facebook.com/frisorplus.se")

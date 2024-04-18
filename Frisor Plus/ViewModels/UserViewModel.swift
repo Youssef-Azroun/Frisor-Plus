@@ -36,7 +36,7 @@ class UserViewModel: ObservableObject {
                     if let error = error {
                         completion(false, error.localizedDescription)
                     } else {
-                        completion(true, "Verification email sent. Please check your email.")
+                        completion(true, "Ett verifieringsmeddelande har skickats till din e-postadress. Vänligen kontrollera din inkorg och genomför verifieringen. Om du inte fick verifieringsmeddelandet vänligen kontrolera dina info. tack! ")
                     }
                 }
             }
