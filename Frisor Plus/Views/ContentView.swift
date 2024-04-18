@@ -35,10 +35,11 @@ struct ContentView: View {
                             navigateToLogin = true
                         }
                     }
-                    .padding(5)
+                    .padding(10)
                     .background(Color.brown.opacity(5))
                     .cornerRadius(10.0)
                     .foregroundColor(.white)
+                    .padding(.bottom, 5)
                     .navigationDestination(isPresented: $navigateToLogin) {
                         LoginView()
                     }
@@ -49,25 +50,26 @@ struct ContentView: View {
                         AdminView()
                     }
                 }
-                .padding(5)
+                .padding(8)
                 
                 VStack{
                     HStack{
                         Image("logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 150, height: 150) // Justera storleken efter behov
+                            .frame(width: 160, height: 160) // Justera storleken efter behov
                     VStack{
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
-                                .font(.system(size: 25))
+                                .font(.system(size: 20))
                                 .foregroundColor(.black)
                             Text("Carl Krooks Gata 6\n252 25 Helsingborg")
                                 .foregroundColor(.black)
                         }
+                        .padding(.bottom, 1)
                         HStack{
                             Image(systemName: "envelope")
-                                .font(.system(size: 25))
+                                .font(.system(size: 20))
                                 .foregroundColor(.black)
                             Text("frisorplus@gmail.com")
                                 .foregroundColor(.black)
@@ -77,9 +79,10 @@ struct ContentView: View {
                                             }
                                         }
                         }
+                        .padding(.bottom, 1)
                         HStack{
                             Image(systemName: "link")
-                                .font(.system(size: 25))
+                                .font(.system(size: 20))
                                 .foregroundColor(.black)
                             Text("www.facebook.com/frisorplus.se")
                                 .foregroundColor(.black)

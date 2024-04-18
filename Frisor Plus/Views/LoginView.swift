@@ -15,11 +15,16 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var navigateToCreateAccount = false
     @State private var isPasswordVisible = false
-    @State private var showToast = false // Add this line
-    @State private var toastMessage: String = "" // Add this line for dynamic toast messages
+    @State private var showToast = false
+    @State private var toastMessage: String = ""
     
     var body: some View {
         VStack {
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 250, height: 250) // Justera storleken efter behov
+                .padding(.bottom, 10)
          HStack {
                     Image(systemName: "envelope")
                         .foregroundColor(.gray)
@@ -29,7 +34,6 @@ struct LoginView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(20)
-            
 
           HStack {
                     Image(systemName: "lock")
@@ -52,10 +56,13 @@ struct LoginView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(20)
-
+                .padding(.bottom, 20)
             
+            Text("Logga in om du har ett konto om du inte har \nett konto klicka på registrera för att skapa \nett konto.")
+                .foregroundColor(.black)
+                .multilineTextAlignment(.center) 
+                .padding(.bottom, 20)
             
-
             Button("Logga in") {
                 userViewModel.loginUser(email: email, password: password) { success, message in
                     if success {
@@ -90,7 +97,7 @@ struct LoginView: View {
                 AdminView()
             }
 
-            Button("Skapa konto") {
+            Button("Registrera") {
                 navigateToCreateAccount = true
             }
             .padding()
@@ -100,8 +107,11 @@ struct LoginView: View {
             .navigationDestination(isPresented: $navigateToCreateAccount) {
                 CreateAccountView()
             }
+           
         }
         .padding()
+        Spacer()
+        
         if showToast {
             toastView
                 .animation(.easeInOut, value: showToast)
