@@ -13,8 +13,14 @@ struct MyAccountView: View {
 
     var body: some View {
         VStack {
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 250, height: 250) // Justera storleken efter behov
+                .padding(.bottom, 10)
             Text("My Account View")
         }
+        Spacer()
         .navigationBarItems(trailing: Button("Log Out") {
             userViewModel.logoutUser()
             presentationMode.wrappedValue.dismiss()

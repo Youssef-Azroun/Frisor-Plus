@@ -18,6 +18,11 @@ struct CreateAccountView: View {
     
     var body: some View {
          VStack {
+             Image("logo")
+                 .resizable()
+                 .scaledToFit()
+                 .frame(width: 250, height: 250) // Justera storleken efter behov
+                 .padding(.bottom, 10)
             HStack {
                     Image(systemName: "envelope")
                         .foregroundColor(.gray)
@@ -79,6 +84,7 @@ struct CreateAccountView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(20)
+                .padding(.bottom, 20)
 
             Button("Skapa konto") {
                 // Handle log in action
@@ -102,6 +108,7 @@ struct CreateAccountView: View {
             .disabled(!isFormValid)
         }
         .padding()
+        Spacer()
         .alert(isPresented: $showAlert) {
     Alert(
         title: Text("Konto skapande"),

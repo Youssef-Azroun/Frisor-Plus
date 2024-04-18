@@ -11,12 +11,20 @@ struct AdminView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        Text("Admin View")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(trailing: Button("Log Out") {
-                userViewModel.logoutAndUnsubscribe()
-                presentationMode.wrappedValue.dismiss()
-            })
+        VStack{
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 250, height: 250) // Justera storleken efter behov
+                .padding(.bottom, 10)
+            Text("Admin View")
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(trailing: Button("Log Out") {
+                    userViewModel.logoutAndUnsubscribe()
+                    presentationMode.wrappedValue.dismiss()
+                })
+        }
+        Spacer()
     }
 }
 
