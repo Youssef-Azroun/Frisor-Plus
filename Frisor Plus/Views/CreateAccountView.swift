@@ -12,6 +12,10 @@ struct CreateAccountView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     
+    private var isFormValid: Bool {
+        !email.isEmpty && !password.isEmpty && !firstName.isEmpty && !lastName.isEmpty && !phoneNumber.isEmpty
+    }
+    
     var body: some View {
          VStack {
             HStack {
@@ -28,10 +32,10 @@ struct CreateAccountView: View {
                     Image(systemName: "lock")
                         .foregroundColor(.gray)
                     if isPasswordVisible {
-                        TextField("Password", text: $password)
+                        TextField("Lösenord", text: $password)
                             .foregroundColor(.black)
                     } else {
-                        SecureField("Password", text: $password)
+                        SecureField("Lösenord", text: $password)
                             .foregroundColor(.black)
                     }
                     Button(action: {
@@ -49,7 +53,7 @@ struct CreateAccountView: View {
                 HStack {
                     Image(systemName: "person")
                         .foregroundColor(.gray)
-                    TextField("First name", text: $firstName)
+                    TextField("Förnamn", text: $firstName)
                         .foregroundColor(.black)
                 }
                 .padding()
@@ -59,7 +63,7 @@ struct CreateAccountView: View {
                 HStack {
                     Image(systemName: "person")
                         .foregroundColor(.gray)
-                    TextField("Last name", text: $lastName)
+                    TextField("Efternamn", text: $lastName)
                         .foregroundColor(.black)
                 }
                 .padding()
@@ -69,14 +73,14 @@ struct CreateAccountView: View {
                 HStack {
                     Image(systemName: "phone")
                         .foregroundColor(.gray)
-                    TextField("Phone number", text: $phoneNumber)
+                    TextField("Telefonnummer", text: $phoneNumber)
                         .foregroundColor(.black)
                 }
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(20)
 
-            Button("Create account") {
+            Button("Skapa konto") {
                 // Handle log in action
                 let phoneInt = Int(phoneNumber) ?? 0
                 userViewModel.createUser(email: email, password: password, firstName: firstName, lastName: lastName, phoneNumber: phoneInt) { success, message in
@@ -92,16 +96,22 @@ struct CreateAccountView: View {
                 }
             }
             .padding()
-            .background(Color.brown.opacity(5))
+            .background(isFormValid ? Color.brown.opacity(5) : Color.gray)
             .cornerRadius(10.0)
             .foregroundColor(.white)
+            .disabled(!isFormValid)
         }
         .padding()
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("Account Creation"), message: Text(alertMessage), dismissButton: .default(Text("OK")) {
-                presentationMode.wrappedValue.dismiss()
-            })
-        }
+    Alert(
+        title: Text("Konto skapande"),
+        message: Text(alertMessage),
+        primaryButton: .default(Text("OK")) {
+            presentationMode.wrappedValue.dismiss()
+        },
+        secondaryButton: .cancel()
+    )
+}
 }
 }
 

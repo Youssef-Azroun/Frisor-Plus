@@ -15,6 +15,8 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var navigateToCreateAccount = false
     @State private var isPasswordVisible = false
+    @State private var showToast = false // Add this line
+    @State private var toastMessage: String = "" // Add this line for dynamic toast messages
     
     var body: some View {
         VStack {
@@ -33,10 +35,10 @@ struct LoginView: View {
                     Image(systemName: "lock")
                         .foregroundColor(.gray)
                     if isPasswordVisible {
-                        TextField("Password", text: $password)
+                        TextField("Lösenord", text: $password)
                             .foregroundColor(.black)
                     } else {
-                        SecureField("Password", text: $password)
+                        SecureField("Lösenord", text: $password)
                             .foregroundColor(.black)
                     }
                     Button(action: {
@@ -54,7 +56,7 @@ struct LoginView: View {
             
             
 
-            Button("Log in") {
+            Button("Logga in") {
                 userViewModel.loginUser(email: email, password: password) { success, message in
                     if success {
                         // Check if the user is an admin
@@ -68,7 +70,15 @@ struct LoginView: View {
                             }
                         }
                     } else {
-                        // Show error message
+                        if message == "Please verify your email before logging in." {
+                            toastMessage = "Vänligen verifiera din e-postadress innan du loggar in."
+                        } else {
+                            toastMessage = "Något har gått fel. Antingen är din e-postadress eller lösenord felaktigt."
+                        }
+                        showToast = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            showToast = false
+                        }
                     }
                 }
             }
@@ -80,7 +90,7 @@ struct LoginView: View {
                 AdminView()
             }
 
-            Button("Create account") {
+            Button("Skapa konto") {
                 navigateToCreateAccount = true
             }
             .padding()
@@ -92,7 +102,24 @@ struct LoginView: View {
             }
         }
         .padding()
+        if showToast {
+            toastView
+                .animation(.easeInOut, value: showToast)
+                .transition(.move(edge: .bottom))
+        }
 }
+    private var toastView: some View {
+        HStack {
+            Image(systemName: "exclamationmark.triangle")
+                .foregroundColor(.white)
+                .font(.system(size: 25))
+            Text(toastMessage)
+        }
+        .padding()
+        .background(Color.red)
+        .foregroundColor(Color.white)
+        .cornerRadius(25)
+    }
 }
     struct LoginView_Previews: PreviewProvider {
         static var previews: some View {
