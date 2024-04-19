@@ -34,6 +34,9 @@
 		5F9C667A2BCFF30E006974DC /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66792BCFF30E006974DC /* Services.swift */; };
 		5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667B2BCFF489006974DC /* ServicesItem.swift */; };
 		5F9C667E2BCFF856006974DC /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667D2BCFF856006974DC /* ServicesView.swift */; };
+		5F9C66802BD272FC006974DC /* Bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667F2BD272FC006974DC /* Bookings.swift */; };
+		5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */; };
+		5F9C66842BD274F0006974DC /* BookingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		5F9C66792BCFF30E006974DC /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		5F9C667B2BCFF489006974DC /* ServicesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesItem.swift; sourceTree = "<group>"; };
 		5F9C667D2BCFF856006974DC /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		5F9C667F2BD272FC006974DC /* Bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookings.swift; sourceTree = "<group>"; };
+		5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBookingsViewModel.swift; sourceTree = "<group>"; };
+		5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 				314C12A62BC40BDE009BC923 /* User.swift */,
 				5F9C66792BCFF30E006974DC /* Services.swift */,
 				5F9C667B2BCFF489006974DC /* ServicesItem.swift */,
+				5F9C667F2BD272FC006974DC /* Bookings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				314C12A32BC40BDE009BC923 /* UserViewModel.swift */,
+				5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */,
+				5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -348,14 +357,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				315811F42BBF56E700E89481 /* ContentView.swift in Sources */,
+				5F9C66802BD272FC006974DC /* Bookings.swift in Sources */,
 				314C12A72BC40BDE009BC923 /* UserViewModel.swift in Sources */,
 				314C12AA2BC40BDE009BC923 /* User.swift in Sources */,
 				31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */,
+				5F9C66842BD274F0006974DC /* BookingDetailsViewModel.swift in Sources */,
 				5F9C667E2BCFF856006974DC /* ServicesView.swift in Sources */,
 				314C12A82BC40BDE009BC923 /* LoginView.swift in Sources */,
 				315811F22BBF56E700E89481 /* Frisor_PlusApp.swift in Sources */,
 				31E9E8632BCA581400DA41EB /* AdminView.swift in Sources */,
 				5F9C667A2BCFF30E006974DC /* Services.swift in Sources */,
+				5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */,
 				5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */,
 				314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */,
 			);
@@ -516,6 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Frisor Plus/Preview Content\"";
+				DEVELOPMENT_TEAM = T99PH44743;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -544,6 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Frisor Plus/Preview Content\"";
+				DEVELOPMENT_TEAM = T99PH44743;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
