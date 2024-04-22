@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Bookings {
+struct Bookings: Identifiable {
     
-    var bookingId: String
+    var id: String
     var email: String
     var firstName: String
     var lastName: String
@@ -18,4 +18,11 @@ struct Bookings {
     var selectedDate: String
     var selectedTime: String
     var typeOfCut: String
+    
+    var dateTime: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-ddHH:mm"
+        let dateString = "\(selectedDate)\(selectedTime)"
+        return dateFormatter.date(from: dateString)
+    }
 }

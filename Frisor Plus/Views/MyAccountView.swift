@@ -9,16 +9,63 @@ import SwiftUI
 
 struct MyAccountView: View {
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
     @Environment(\.presentationMode) var presentationMode
+    @State private var userDetails: User?
 
     var body: some View {
         VStack {
             Image("logo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 250, height: 250) // Justera storleken efter behov
+                .frame(width: 150, height: 150)
                 .padding(.bottom, 10)
-            Text("My Account View")
+
+                Text("Mina Info:")
+                .font(.title)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
+            
+            if let userDetails = userDetails {
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text("Namn: \(userDetails.firstName) \(userDetails.lastName)")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                        Spacer()
+                        NavigationLink(destination: EditUserDetailsView(user: userDetails).environmentObject(infoBookingsViewModel)) {
+                            Image(systemName: "pencil")
+                                .padding(8)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                                .shadow(radius: 3)
+                        }
+                    }
+
+                    Text("Email: \(userDetails.email)")
+                        .font(.headline)
+                    Text("Mobil: 0\(String(userDetails.phoneNumber))")
+                        .font(.headline)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .padding(.horizontal)
+            }
+            
+            Text("Mina bookningar:")
+                .font(.title)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
+            MyAccountBookingsView() 
+        }
+        .onAppear {
+            infoBookingsViewModel.fetchUserDetails { user in
+                self.userDetails = user
+            }
         }
         Spacer()
         .navigationBarItems(trailing: Button("Log Out") {
@@ -30,6 +77,7 @@ struct MyAccountView: View {
 
 struct MyAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        MyAccountView()
+        MyAccountView().environmentObject(InfoBookingsViewModel())
     }
 }
+
