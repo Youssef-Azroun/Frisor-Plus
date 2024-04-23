@@ -39,6 +39,7 @@
 		5F9C66802BD272FC006974DC /* Bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C667F2BD272FC006974DC /* Bookings.swift */; };
 		5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */; };
 		5F9C66842BD274F0006974DC /* BookingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */; };
+		5F9C66862BD7CD0B006974DC /* AdminBookingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		5F9C667F2BD272FC006974DC /* Bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookings.swift; sourceTree = "<group>"; };
 		5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBookingsViewModel.swift; sourceTree = "<group>"; };
 		5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsViewModel.swift; sourceTree = "<group>"; };
+		5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBookingsCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				5F9C667D2BCFF856006974DC /* ServicesView.swift */,
 				319FE1FE2BD4F4B900601606 /* MyAccountBookingsView.swift */,
 				319FE2002BD50AD900601606 /* EditUserDetailsView.swift */,
+				5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				319FE2012BD50AD900601606 /* EditUserDetailsView.swift in Sources */,
 				5F9C667A2BCFF30E006974DC /* Services.swift in Sources */,
 				5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */,
+				5F9C66862BD7CD0B006974DC /* AdminBookingsCardView.swift in Sources */,
 				5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */,
 				314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */,
 				319FE1FF2BD4F4B900601606 /* MyAccountBookingsView.swift in Sources */,

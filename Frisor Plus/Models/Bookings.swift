@@ -9,7 +9,7 @@ import Foundation
 
 struct Bookings: Identifiable {
     
-    var id: String
+    var id: String?
     var email: String
     var firstName: String
     var lastName: String
