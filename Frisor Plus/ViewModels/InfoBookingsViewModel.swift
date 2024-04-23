@@ -11,7 +11,51 @@ import FirebaseAuth
 
 class InfoBookingsViewModel: ObservableObject {
     @Published var bookings = [Bookings]()
+    let db = Firestore.firestore()
+    
+    
+    func deleteBooking(index: Int) {
+            let bookingRef = db.collection("AllBookings")
+            
+            let booking = bookings[index]
+            if let id = booking.id {
+                bookingRef.document(id).delete { error in
+                    if let error = error {
+                        print("Error removing document: \(error)")
+                    } else {
+                        // Ta bort bokningen från den lokala listan när den har tagits bort från databasen
+                        self.bookings.remove(at: index)
+                    }
+                }
+            }
+        }
 
+
+    
+    func showAllBookings() {
+        Firestore.firestore().collection("AllBookings").getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+                self.bookings = querySnapshot.documents.compactMap { document in
+                    let data = document.data()
+                    return Bookings(
+                        id: document.documentID,
+                        email: data["email"] as? String ?? "",
+                        firstName: data["firstName"] as? String ?? "",
+                        lastName: data["lastName"] as? String ?? "",
+                        phoneNumber: data["phoneNumber"] as? Int ?? 0,
+                        price: data["price"] as? String ?? "",
+                        selectedDate: data["selectedDate"] as? String ?? "",
+                        selectedTime: data["selectedTime"] as? String ?? "",
+                        typeOfCut: data["typeOfCut"] as? String ?? ""
+                    )
+                }.sorted(by: { $0.dateTime ?? Date.distantFuture < $1.dateTime ?? Date.distantFuture })
+            } else {
+                print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+    }
+    
+   
     func fetchBookings() {
         let userId = Auth.auth().currentUser?.uid ?? ""
         Firestore.firestore().collection("UsersBookings").document(userId).collection("UserBookings").getDocuments { (querySnapshot, error) in

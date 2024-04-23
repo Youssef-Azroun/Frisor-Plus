@@ -116,7 +116,7 @@ struct CreateAccountView: View {
         primaryButton: .default(Text("OK")) {
             presentationMode.wrappedValue.dismiss()
         },
-        secondaryButton: .cancel()
+        secondaryButton: .cancel(Text("Avbryt"))
     )
 }
 }
