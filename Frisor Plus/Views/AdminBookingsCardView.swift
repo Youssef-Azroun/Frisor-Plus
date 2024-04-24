@@ -16,14 +16,25 @@ struct AdminBookingsCardView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                ForEach(infoBookingsViewModel.bookings.indices, id: \.self) { index in
-                    AllBookingsCardView(booking: infoBookingsViewModel.bookings[index], index: index)
+                if infoBookingsViewModel.bookings.isEmpty {
+                    Image("Scissors")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 125, height: 125)
+                    Text("Hopp...")
+                        .font(.largeTitle)
+                    Text("För närvarande finns inga bokningar.")
+                        .padding()
+                } else {
+                    ForEach(infoBookingsViewModel.bookings.indices, id: \.self) { index in
+                        AllBookingsCardView(booking: infoBookingsViewModel.bookings[index], index: index)
+                    }
                 }
             }
             .padding()
             .padding(.top, 15)
         }
-        .background(Color.gray.opacity(0.2))
+        .background(infoBookingsViewModel.bookings.isEmpty ? Color.white : Color.gray.opacity(0.2))
         .ignoresSafeArea()
         .onAppear {
             infoBookingsViewModel.showAllBookings()

@@ -13,13 +13,24 @@ struct MyAccountBookingsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                ForEach(infoBookingsViewModel.bookings) { booking in
-                    BookingCardView(booking: booking)
+                if infoBookingsViewModel.bookings.isEmpty {
+                    Image("Scissors")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 125, height: 125)
+                    Text("Hopp...")
+                        .font(.largeTitle)
+                    Text("För närvarande finns inga bokningar.")
+                        .padding()
+                } else {
+                    ForEach(infoBookingsViewModel.bookings) { booking in
+                        BookingCardView(booking: booking)
+                    }
                 }
             }
             .padding()
         }
-        .background(Color.gray.opacity(0.2))
+        .background(infoBookingsViewModel.bookings.isEmpty ? Color.white : Color.gray.opacity(0.2))
         .ignoresSafeArea() 
         .onAppear {
             infoBookingsViewModel.fetchBookings()

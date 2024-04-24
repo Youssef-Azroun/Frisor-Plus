@@ -18,7 +18,7 @@ struct EditUserDetailsView: View {
     @State private var alertMessage = ""
 
     private var isFormValid: Bool {
-        !firstName.isEmpty && !lastName.isEmpty && !phoneNumber.isEmpty
+        !firstName.isEmpty && !lastName.isEmpty && !phoneNumber.isEmpty && phoneNumber.count == 10
     }
 
     init(user: User) {

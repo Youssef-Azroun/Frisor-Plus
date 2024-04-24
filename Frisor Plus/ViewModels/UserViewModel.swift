@@ -12,12 +12,16 @@ class UserViewModel: ObservableObject {
 
     func createUser(email: String, password: String, firstName: String, lastName: String, phoneNumber: Int, completion: @escaping (Bool, String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                completion(false, error.localizedDescription)
+            if let error = error as NSError? {
+                var errorMessage = error.localizedDescription
+                if error.code == AuthErrorCode.emailAlreadyInUse.rawValue {
+                    errorMessage = "Kontot används redan av en annan användare."
+                }
+                completion(false, errorMessage)
                 return
             }
             guard let user = authResult?.user else {
-                completion(false, "User creation failed")
+                completion(false, "Användarskapande misslyckades")
                 return
             }
             user.sendEmailVerification { error in
