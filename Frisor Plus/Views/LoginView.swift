@@ -20,7 +20,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            Image("logo")
+            Image("Logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250, height: 250) // Justera storleken efter behov

@@ -15,7 +15,7 @@ struct MyAccountView: View {
 
     var body: some View {
         VStack {
-            Image("logo")
+            Image("Logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
