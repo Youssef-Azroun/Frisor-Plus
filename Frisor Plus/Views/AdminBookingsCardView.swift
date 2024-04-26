@@ -101,9 +101,8 @@ struct AllBookingsCardView: View {
                     Alert(title: Text("Bekräfta borttagning"), 
                           message: Text("Är du säker på att du vill ta bort \nden här bokningen? \nNamn: \(booking.firstName) \(booking.lastName) \nDatum: \(booking.selectedDate) \nTid: \(booking.selectedTime)"),
                           primaryButton: .destructive(Text("Ja")) {
-                        // Ta bort bokningen om användaren väljer Ja
-                        infoBookingsViewModel.deleteBooking(index: index)
-                    }, secondaryButton: .cancel(Text("Avbryt")))
+                        infoBookingsViewModel.deleteBooking(bookingId: booking.id!)
+                        }, secondaryButton: .cancel(Text("Avbryt")))
                 }
             }
         }

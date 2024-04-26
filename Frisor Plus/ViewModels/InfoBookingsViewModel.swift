@@ -14,31 +14,31 @@ class InfoBookingsViewModel: ObservableObject {
     let db = Firestore.firestore()
     
     
-    func deleteBooking(index: Int) {
-            let bookingRef = db.collection("AllBookings")
-            
-            let booking = bookings[index]
-            if let id = booking.id {
-                bookingRef.document(id).delete { error in
-                    if let error = error {
-                        print("Error removing document: \(error)")
-                    } else {
-                        // Ta bort bokningen från den lokala listan när den har tagits bort från databasen
-                        self.bookings.remove(at: index)
-                    }
+    func deleteBooking(bookingId: String) {
+        let bookingRef = db.collection("AllBookings")
+        bookingRef.document(bookingId).delete { error in
+            if let error = error {
+                print("Error removing document: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.bookings.removeAll { $0.id == bookingId }
                 }
             }
         }
-
+    }
 
     
     func showAllBookings() {
-        Firestore.firestore().collection("AllBookings").getDocuments { (querySnapshot, error) in
-            if let querySnapshot = querySnapshot {
-                self.bookings = querySnapshot.documents.compactMap { document in
-                    let data = document.data()
-                    return Bookings(
-                        id: document.documentID,
+        Firestore.firestore().collection("AllBookings").addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    let data = diff.document.data()
+                    let newBooking = Bookings(
+                        id: diff.document.documentID,
                         email: data["email"] as? String ?? "",
                         firstName: data["firstName"] as? String ?? "",
                         lastName: data["lastName"] as? String ?? "",
@@ -48,10 +48,15 @@ class InfoBookingsViewModel: ObservableObject {
                         selectedTime: data["selectedTime"] as? String ?? "",
                         typeOfCut: data["typeOfCut"] as? String ?? ""
                     )
-                }.sorted(by: { $0.dateTime ?? Date.distantFuture < $1.dateTime ?? Date.distantFuture })
-            } else {
-                print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+                    self.bookings.append(newBooking)
+                }
+                if (diff.type == .removed) {
+                    if let index = self.bookings.firstIndex(where: { $0.id == diff.document.documentID }) {
+                        self.bookings.remove(at: index)
+                    }
+                }
             }
+            self.bookings.sort(by: { $0.dateTime ?? Date.distantFuture < $1.dateTime ?? Date.distantFuture })
         }
     }
     
