@@ -37,9 +37,15 @@ struct CalendarAndTimeView: View {
                 .background(Color.gray)
                 .cornerRadius(15)
             if dayOfWeek == 1 {
-                Text("Frisören är stängt på söndag!!")
+                Spacer()
+                    Text("📍🔊\nFrisören är stängt på söndag!!")
                     .font(.title)
+                    .bold()
                     .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(50)
+                Spacer()
+                    
             } else {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
@@ -51,7 +57,7 @@ struct CalendarAndTimeView: View {
                                 Text(time)
                                     .bold()
                                     .foregroundColor(.white)
-                                    .padding()
+                                    .padding(10)
                                     .frame(minWidth: 250)
                                     .background(Color.brown)
                                     .cornerRadius(25)
@@ -64,6 +70,7 @@ struct CalendarAndTimeView: View {
                 }
             }
         }
+        .padding()
     }
 }
 

@@ -46,16 +46,6 @@ struct BookingCardView: View {
             Text("Namn: \(booking.firstName) \(booking.lastName)")
                 .font(.headline)
             HStack {
-                Image(systemName: "scissors")
-                    .foregroundColor(.secondary)
-                Text("Typ Av besök: \(booking.typeOfCut)")
-            }
-            HStack {
-                Image(systemName: "creditcard")
-                    .foregroundColor(.secondary)
-                Text("Pris: \(booking.price)")
-            }
-            HStack {
                 Image(systemName: "envelope")
                     .foregroundColor(.secondary)
                 Text("Email: \(booking.email)")
@@ -66,14 +56,24 @@ struct BookingCardView: View {
                 Text("Mobil: 0\(String(booking.phoneNumber))")
             }
             HStack {
-                Image(systemName: "clock")
+                Image(systemName: "scissors")
                     .foregroundColor(.secondary)
-                Text("Tid: \(booking.selectedTime)")
+                Text("Typ av besök: \(booking.typeOfCut)")
+            }
+            HStack {
+                Image(systemName: "creditcard")
+                    .foregroundColor(.secondary)
+                Text("Pris: \(booking.price)")
             }
             HStack {
                 Image(systemName: "calendar")
                     .foregroundColor(.secondary)
                 Text("Datum: \(booking.selectedDate)")
+            }
+            HStack {
+                Image(systemName: "clock")
+                    .foregroundColor(.secondary)
+                Text("Tid: \(booking.selectedTime)")
             }
             Spacer()
 
@@ -82,7 +82,7 @@ struct BookingCardView: View {
                 Button("Avboka") {
                     
                 }
-                .padding()
+                .padding(8)
                 .background(Color.brown)
                 .foregroundColor(.white)
                 .cornerRadius(10)
