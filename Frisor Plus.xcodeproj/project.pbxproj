@@ -42,6 +42,7 @@
 		5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */; };
 		5F9C66842BD274F0006974DC /* BookingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */; };
 		5F9C66862BD7CD0B006974DC /* AdminBookingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */; };
+		5F9C668A2BDFBF15006974DC /* BookingConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66892BDFBF15006974DC /* BookingConfirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		5F9C66812BD2742C006974DC /* InfoBookingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBookingsViewModel.swift; sourceTree = "<group>"; };
 		5F9C66832BD274F0006974DC /* BookingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsViewModel.swift; sourceTree = "<group>"; };
 		5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBookingsCardView.swift; sourceTree = "<group>"; };
+		5F9C66892BDFBF15006974DC /* BookingConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				5F9C66852BD7CD0B006974DC /* AdminBookingsCardView.swift */,
 				319FE2022BDCF36400601606 /* CalendarAndTimeView.swift */,
 				319FE2042BDCF3EF00601606 /* BookingDetailsLogedInView.swift */,
+				5F9C66892BDFBF15006974DC /* BookingConfirmationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				314C12A72BC40BDE009BC923 /* UserViewModel.swift in Sources */,
 				314C12AA2BC40BDE009BC923 /* User.swift in Sources */,
 				31E9E8612BC77CAD00DA41EB /* MyAccountView.swift in Sources */,
+				5F9C668A2BDFBF15006974DC /* BookingConfirmationView.swift in Sources */,
 				5F9C66842BD274F0006974DC /* BookingDetailsViewModel.swift in Sources */,
 				5F9C667E2BCFF856006974DC /* ServicesView.swift in Sources */,
 				314C12A82BC40BDE009BC923 /* LoginView.swift in Sources */,
