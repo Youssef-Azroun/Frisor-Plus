@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ServicesView: View {
     var servicItems: Services
+    @Binding var navigateToCalendar: Bool
+    @Binding var selectedService: Services?
     var buttonAction: () -> Void // Closure för att hantera knapptryckningen
 
     var body: some View {
@@ -23,7 +25,8 @@ struct ServicesView: View {
             Spacer()
             
             Button("Boka") {
-                // Anropa closure när knappen trycks
+                selectedService = servicItems
+                navigateToCalendar = true
                 self.buttonAction()
             }
             .foregroundColor(.white)
