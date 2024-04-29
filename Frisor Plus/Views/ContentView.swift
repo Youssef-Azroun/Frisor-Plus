@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var navigateToAdminView = false
     @EnvironmentObject var userViewModel: UserViewModel
     @ObservedObject var servicesItem = ServicesItem()
+    @State private var navigateToCalendar = false
+    @State private var selectedService: Services?
     
     let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
 
@@ -95,9 +97,12 @@ struct ContentView: View {
                 }
                
                 List(servicesItem.serviceItems) { item in
-                    ServicesView(servicItems: item) {
+                    ServicesView(servicItems: item, navigateToCalendar: $navigateToCalendar, selectedService: $selectedService) { // Update this line
                         print("Boka-knapp tryckt för \(item.servicedName)")
                     }
+                }
+                .navigationDestination(isPresented: $navigateToCalendar) {
+                    CalendarAndTimeView(selectedService: selectedService)
                 }
             }
         }
