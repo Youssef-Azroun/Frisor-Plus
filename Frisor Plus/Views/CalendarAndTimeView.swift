@@ -11,6 +11,7 @@ struct CalendarAndTimeView: View {
     @State private var selectedDate = Date()
     @State private var selectedTime = ""
     @State private var showBookingDetails = false
+    @State private var bookedTimes: [String] = []
     let times = ["9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"]
     var selectedService: Services?
 
@@ -36,6 +37,12 @@ struct CalendarAndTimeView: View {
                 .padding()
                 .background(Color.gray)
                 .cornerRadius(15)
+                .onAppear {
+                    let formattedDate = BookingDetailsViewModel().formattedDate(selectedDate)
+                    BookingDetailsViewModel().fetchBookingsForDate(date: formattedDate) { times in
+                        self.bookedTimes = times
+                    }
+                }
             if dayOfWeek == 1 {
                 Spacer()
                     Text("📍🔊\nFrisören är stängt på söndag!!")
@@ -56,12 +63,13 @@ struct CalendarAndTimeView: View {
                             }) {
                                 Text(time)
                                     .bold()
-                                    .foregroundColor(.white)
+                                    .foregroundColor(bookedTimes.contains(time) ? .black : .white)
                                     .padding(10)
                                     .frame(minWidth: 250)
-                                    .background(Color.brown)
+                                    .background(bookedTimes.contains(time) ? Color.red : Color.brown)
                                     .cornerRadius(25)
                             }
+                            .disabled(bookedTimes.contains(time))
                         }
                         NavigationLink(destination: BookingDetailsLogedInView(viewModel: BookingDetailsViewModel(), selectedDate: selectedDate, selectedTime: selectedTime, price: selectedService?.price ?? "Unknown", typeOfCut: selectedService?.servicedName ?? "Unknown"), isActive: $showBookingDetails) {
                             EmptyView()
