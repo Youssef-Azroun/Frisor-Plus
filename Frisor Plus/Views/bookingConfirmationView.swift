@@ -20,10 +20,10 @@ struct BookingConfirmationView: View {
             Image("Logo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 150, height: 150) 
+                .frame(width: 100, height: 100)
             
             Text("Bokning bekräftelse")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 5)
@@ -31,7 +31,6 @@ struct BookingConfirmationView: View {
             Text("Tack för din bokning hos oss Frisör plus.")
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 5)
             
             Text("📍Viktigt info!")
                 .foregroundColor(.black)

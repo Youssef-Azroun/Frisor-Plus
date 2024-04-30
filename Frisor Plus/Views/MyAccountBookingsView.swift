@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyAccountBookingsView: View {
     @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
+   
 
     var body: some View {
         ScrollView {
@@ -40,7 +41,9 @@ struct MyAccountBookingsView: View {
 
 struct BookingCardView: View {
     var booking: Bookings
-
+    @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
+    @State private var showAlert = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Namn: \(booking.firstName) \(booking.lastName)")
@@ -79,13 +82,23 @@ struct BookingCardView: View {
 
             HStack {
                 Spacer()
-                Button("Avboka") {
-                    
+                
+                Button(action: {
+                    showAlert = true
+                }) {
+                    Text("Avboka")
+                        .padding(8)
+                        .background(Color.brown)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
-                .padding(8)
-                .background(Color.brown)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Avboka tid"),
+                          message: Text("Är du säker på att du vill \navboka denna tid? \nDatum: \(booking.selectedDate) \nTid: \(booking.selectedTime)"),
+                          primaryButton: .destructive(Text("Ja")) {
+                        infoBookingsViewModel.cancelBooking(bookingId: booking.id!)
+                        }, secondaryButton: .cancel(Text("Avbryt")))
+                }
             }
         }
         .padding()
