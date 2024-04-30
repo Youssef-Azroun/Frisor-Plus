@@ -14,6 +14,31 @@ class InfoBookingsViewModel: ObservableObject {
     let db = Firestore.firestore()
     
     
+    func cancelBooking(bookingId: String) {
+        let allBookingsRef = Firestore.firestore().collection("AllBookings").document(bookingId)
+        allBookingsRef.delete { error in
+            if let error = error {
+                print("Error removing booking from AllBookings: \(error.localizedDescription)")
+            } else {
+                DispatchQueue.main.async {
+                    self.bookings.removeAll(where: { $0.id == bookingId })
+                }
+            }
+        }
+
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("User not found")
+            return
+        }
+        let userBookingsRef = Firestore.firestore().collection("UsersBookings").document(userId).collection("UserBookings").document(bookingId)
+        userBookingsRef.delete { error in
+            if let error = error {
+                print("Error removing booking from user's bookings: \(error.localizedDescription)")
+            }
+        }
+    }
+
+
     func deleteBooking(bookingId: String) {
         let bookingRef = db.collection("AllBookings")
         bookingRef.document(bookingId).delete { error in
