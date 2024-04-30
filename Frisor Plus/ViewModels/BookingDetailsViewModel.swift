@@ -37,4 +37,59 @@ class BookingDetailsViewModel: ObservableObject {
             completion(user)
         }
     }
+
+    func saveBookingDetails(booking: Bookings, completion: @escaping (Bool) -> Void) {
+    let db = Firestore.firestore()
+    let bookingID = UUID().uuidString // Generate a unique ID for the booking
+    let bookingData: [String: Any] = [
+        "email": booking.email,
+        "firstName": booking.firstName,
+        "lastName": booking.lastName,
+        "phoneNumber": booking.phoneNumber,
+        "price": booking.price,
+        "selectedDate": booking.selectedDate,
+        "selectedTime": booking.selectedTime,
+        "typeOfCut": booking.typeOfCut
+    ]
+
+    // Save to AllBookings
+    db.collection("AllBookings").document(bookingID).setData(bookingData) { error in
+        if let error = error {
+            print("Error saving booking to AllBookings: \(error.localizedDescription)")
+            completion(false)
+            return
+        }
+
+        // Save to UserBookings
+        if let userId = Auth.auth().currentUser?.uid {
+            db.collection("UsersBookings").document(userId).collection("UserBookings").document(bookingID).setData(bookingData) { error in
+                if let error = error {
+                    print("Error saving booking to UserBookings: \(error.localizedDescription)")
+                    completion(false)
+                } else {
+                    completion(true)
+                }
+            }
+        } else {
+            print("User not logged in")
+            completion(false)
+        }
+    }
+    }
+
+    func fetchBookingsForDate(date: String, completion: @escaping ([String]) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("AllBookings").whereField("selectedDate", isEqualTo: date).getDocuments { (querySnapshot, error) in
+            var bookedTimes: [String] = []
+            if let snapshot = querySnapshot {
+                for document in snapshot.documents {
+                    let data = document.data()
+                    if let time = data["selectedTime"] as? String {
+                        bookedTimes.append(time)
+                    }
+                }
+            }
+            completion(bookedTimes)
+        }
+    }
 }

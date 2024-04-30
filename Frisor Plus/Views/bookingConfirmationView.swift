@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct BookingConfirmationView: View {
+    var selectedDate: String
+    var selectedTime: String
+    var price: String
+    var typeOfCut: String
+    var userDetails: User?
     
-   
     var body: some View {
         
         VStack {
@@ -50,7 +54,46 @@ struct BookingConfirmationView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
             
-            
+            VStack(alignment: .leading, spacing: 10) {
+                if let userDetails = userDetails {
+                    Text("Namn: \(userDetails.firstName) \(userDetails.lastName)")
+                    .font(.headline)
+                    HStack {
+                        Image(systemName: "envelope")
+                        .foregroundColor(.secondary)
+                    Text("Email: \(userDetails.email)")
+                    }
+                    HStack {
+                        Image(systemName: "phone")
+                        .foregroundColor(.secondary)
+                    Text("Mobil: 0\(String(userDetails.phoneNumber))")
+                    }
+                }
+                HStack {
+                    Image(systemName: "scissors")
+                    .foregroundColor(.secondary)
+                Text("Typ av besök: \(typeOfCut)")
+                }
+                HStack {
+                    Image(systemName: "creditcard")
+                    .foregroundColor(.secondary)
+                Text("Pris: \(price)")
+                }
+                HStack {
+                    Image(systemName: "calendar")
+                    .foregroundColor(.secondary)
+                Text("Datum: \(selectedDate)")
+                }
+                HStack {
+                    Image(systemName: "clock")
+                    .foregroundColor(.secondary)
+                Text("Tid: \(selectedTime)")
+                }
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
             
             Spacer()
             Spacer()
@@ -70,6 +113,6 @@ struct BookingConfirmationView: View {
 
 struct bookingConfirmation_Previews: PreviewProvider {
     static var previews: some View {
-        BookingConfirmationView()
+        BookingConfirmationView(selectedDate: "2024-05-01", selectedTime: "15:00", price: "300kr", typeOfCut: "Herrklippning", userDetails: User(email: "john.doe@example.com", firstName: "John", lastName: "Doe", phoneNumber: 123456789))
     }
 }

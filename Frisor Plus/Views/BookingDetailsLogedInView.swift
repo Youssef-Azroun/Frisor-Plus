@@ -83,14 +83,28 @@ struct BookingDetailsLogedInView: View {
         Spacer()
         
         Button("Boka tiden") {
+    let booking = Bookings(
+        email: userDetails?.email ?? "",
+        firstName: userDetails?.firstName ?? "",
+        lastName: userDetails?.lastName ?? "",
+        phoneNumber: userDetails?.phoneNumber ?? 0,
+        price: price,
+        selectedDate: viewModel.formattedDate(selectedDate),
+        selectedTime: selectedTime,
+        typeOfCut: typeOfCut
+    )
+    viewModel.saveBookingDetails(booking: booking) { success in
+        if success {
             navigateToBookingConfirmationView = true
         }
+    }
+}
         .padding(10)
         .background(Color.brown)
         .cornerRadius(10.0)
         .foregroundColor(.white)
         .navigationDestination(isPresented: $navigateToBookingConfirmationView) {
-                BookingConfirmationView()
+                BookingConfirmationView(selectedDate: viewModel.formattedDate(selectedDate), selectedTime: selectedTime, price: price, typeOfCut: typeOfCut, userDetails: userDetails)
             }
         .onAppear {
             viewModel.fetchUserDetails { user in
