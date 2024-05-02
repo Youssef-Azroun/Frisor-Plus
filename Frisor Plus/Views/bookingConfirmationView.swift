@@ -96,15 +96,15 @@ struct BookingConfirmationView: View {
             
             Spacer()
             Spacer()
-            
-            Button("Tillbaka till Första sida") {
-                
+            NavigationLink(destination: ContentView()) {
+                Text("Tillbaka till Första sida")
+                    .padding(10)
+                    .background(Color.brown.opacity(5))
+                    .cornerRadius(10.0)
+                    .foregroundColor(.white)
             }
-            .padding(10)
-            .background(Color.brown.opacity(5))
-            .cornerRadius(10.0)
-            .foregroundColor(.white)
         }
+        .navigationBarBackButtonHidden(true)
         Spacer()
     }
 }
