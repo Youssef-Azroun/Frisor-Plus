@@ -16,6 +16,7 @@ struct BookingDetailsLogedInView: View {
     @State private var userDetails: User?
     
     @State private var navigateToBookingConfirmationView = false
+    @State private var showAlert = false
 
     var body: some View {
         VStack{
@@ -83,22 +84,32 @@ struct BookingDetailsLogedInView: View {
         Spacer()
         
         Button("Boka tiden") {
-    let booking = Bookings(
-        email: userDetails?.email ?? "",
-        firstName: userDetails?.firstName ?? "",
-        lastName: userDetails?.lastName ?? "",
-        phoneNumber: userDetails?.phoneNumber ?? 0,
-        price: price,
-        selectedDate: viewModel.formattedDate(selectedDate),
-        selectedTime: selectedTime,
-        typeOfCut: typeOfCut
-    )
-    viewModel.saveBookingDetails(booking: booking) { success in
-        if success {
-            navigateToBookingConfirmationView = true
+            let formattedDate = viewModel.formattedDate(selectedDate)
+            viewModel.fetchBookingsForDate(date: formattedDate) { bookedTimes in
+                if bookedTimes.contains(selectedTime) {
+                    showAlert = true
+                } else {
+                    let booking = Bookings(
+                        email: userDetails?.email ?? "",
+                        firstName: userDetails?.firstName ?? "",
+                        lastName: userDetails?.lastName ?? "",
+                        phoneNumber: userDetails?.phoneNumber ?? 0,
+                        price: price,
+                        selectedDate: formattedDate,
+                        selectedTime: selectedTime,
+                        typeOfCut: typeOfCut
+                    )
+                    viewModel.saveBookingDetails(booking: booking) { success in
+                        if success {
+                            navigateToBookingConfirmationView = true
+                        }
+                    }
+                }
+            }
         }
-    }
-}
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Tidsluckan otillgänglig"), message: Text("Denna tid är redan bokad av en annan person."), dismissButton: .default(Text("Okej")))
+        }
         .padding(10)
         .background(Color.brown)
         .cornerRadius(10.0)

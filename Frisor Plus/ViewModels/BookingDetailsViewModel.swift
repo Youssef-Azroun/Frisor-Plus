@@ -13,7 +13,7 @@ class BookingDetailsViewModel: ObservableObject {
     func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "sv_SE")
-        dateFormatter.dateFormat = "EEEE d MMMM yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
     }
 
@@ -39,42 +39,49 @@ class BookingDetailsViewModel: ObservableObject {
     }
 
     func saveBookingDetails(booking: Bookings, completion: @escaping (Bool) -> Void) {
-    let db = Firestore.firestore()
-    let bookingID = UUID().uuidString // Generate a unique ID for the booking
-    let bookingData: [String: Any] = [
-        "email": booking.email,
-        "firstName": booking.firstName,
-        "lastName": booking.lastName,
-        "phoneNumber": booking.phoneNumber,
-        "price": booking.price,
-        "selectedDate": booking.selectedDate,
-        "selectedTime": booking.selectedTime,
-        "typeOfCut": booking.typeOfCut
-    ]
-
-    // Save to AllBookings
-    db.collection("AllBookings").document(bookingID).setData(bookingData) { error in
-        if let error = error {
-            print("Error saving booking to AllBookings: \(error.localizedDescription)")
+        let db = Firestore.firestore()
+        let bookingID = UUID().uuidString // Generate a unique ID for the booking
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let bookingDate = dateFormatter.date(from: booking.selectedDate) else {
+            print("Invalid date format")
             completion(false)
             return
         }
+        let bookingData: [String: Any] = [
+            "email": booking.email,
+            "firstName": booking.firstName,
+            "lastName": booking.lastName,
+            "phoneNumber": booking.phoneNumber,
+            "price": booking.price,
+            "selectedDate": formattedDate(bookingDate),
+            "selectedTime": booking.selectedTime,
+            "typeOfCut": booking.typeOfCut
+        ]
 
-        // Save to UserBookings
-        if let userId = Auth.auth().currentUser?.uid {
-            db.collection("UsersBookings").document(userId).collection("UserBookings").document(bookingID).setData(bookingData) { error in
-                if let error = error {
-                    print("Error saving booking to UserBookings: \(error.localizedDescription)")
-                    completion(false)
-                } else {
-                    completion(true)
-                }
+        // Save to AllBookings
+        db.collection("AllBookings").document(bookingID).setData(bookingData) { error in
+            if let error = error {
+                print("Error saving booking to AllBookings: \(error.localizedDescription)")
+                completion(false)
+                return
             }
-        } else {
-            print("User not logged in")
-            completion(false)
+
+            // Save to UserBookings
+            if let userId = Auth.auth().currentUser?.uid {
+                db.collection("UsersBookings").document(userId).collection("UserBookings").document(bookingID).setData(bookingData) { error in
+                    if let error = error {
+                        print("Error saving booking to UserBookings: \(error.localizedDescription)")
+                        completion(false)
+                    } else {
+                        completion(true)
+                    }
+                }
+            } else {
+                print("User not logged in")
+                completion(false)
+            }
         }
-    }
     }
 
     func fetchBookingsForDate(date: String, completion: @escaping ([String]) -> Void) {

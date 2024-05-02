@@ -13,7 +13,7 @@ struct CreateAccountView: View {
     @State private var alertMessage = ""
     
     private var isFormValid: Bool {
-        !email.isEmpty && !password.isEmpty && !firstName.isEmpty && !lastName.isEmpty && !phoneNumber.isEmpty && phoneNumber.count == 10
+        !email.isEmpty && !password.isEmpty && !firstName.isEmpty && !lastName.isEmpty && !phoneNumber.isEmpty && phoneNumber.count == 10 && phoneNumber.hasPrefix("0")
     }
     
     var body: some View {
