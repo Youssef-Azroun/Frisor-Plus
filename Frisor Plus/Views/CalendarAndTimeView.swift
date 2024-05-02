@@ -34,6 +34,7 @@ struct CalendarAndTimeView: View {
         VStack(alignment: .leading, spacing: 10) {
             DatePicker("Select Date", selection: $selectedDate, in: Date()..., displayedComponents: .date)
                 .datePickerStyle(GraphicalDatePickerStyle())
+                .environment(\.locale, Locale(identifier: "en_US")) // Set the locale to English
                 .padding()
                 .background(Color.gray)
                 .cornerRadius(15)
