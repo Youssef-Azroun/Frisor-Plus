@@ -104,6 +104,7 @@ struct ContentView: View {
                 .navigationDestination(isPresented: $navigateToCalendar) {
                     CalendarAndTimeView(selectedService: selectedService)
                 }
+                .navigationBarBackButtonHidden(true)
             }
         }
         .onAppear {
