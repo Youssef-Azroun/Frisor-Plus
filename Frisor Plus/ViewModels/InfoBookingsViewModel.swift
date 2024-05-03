@@ -155,12 +155,12 @@ class InfoBookingsViewModel: ObservableObject {
         let userBookingsRef = db.collection("UsersBookings").document(Auth.auth().currentUser?.uid ?? "").collection("UserBookings").document(bookingId)
         let allBookingsRef = db.collection("AllBookings").document(bookingId)
         
-        allBookingsRef.getDocument { (document, error) in
-            if let document = document, document.exists {
+        allBookingsRef.addSnapshotListener { documentSnapshot, error in
+            if let document = documentSnapshot, document.exists {
                 completion(false)  // Exists in AllBookings, not deletable
             } else {
-                userBookingsRef.getDocument { (document, error) in
-                    completion(document != nil && document!.exists)  // Exists only in UserBookings, deletable
+                userBookingsRef.addSnapshotListener { documentSnapshot, error in
+                    completion(documentSnapshot != nil && documentSnapshot!.exists)  // Exists only in UserBookings, deletable
                 }
             }
         }
