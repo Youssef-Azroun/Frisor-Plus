@@ -43,7 +43,14 @@ struct BookingCardView: View {
     var booking: Bookings
     @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
     @State private var showAlert = false
-    
+    @State private var isDeletable = false  // Add this line
+
+    func checkBookingStatus() {
+        infoBookingsViewModel.checkBookingDeletability(bookingId: booking.id!) { deletable in
+            isDeletable = deletable
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Namn: \(booking.firstName) \(booking.lastName)")
@@ -84,20 +91,24 @@ struct BookingCardView: View {
                 Spacer()
                 
                 Button(action: {
-                    showAlert = true
+                    if isDeletable {
+                        infoBookingsViewModel.deleteBookingFromUserOnly(bookingId: booking.id!)
+                                       } else {
+                        showAlert = true
+                    }
                 }) {
-                    Text("Avboka")
+                    Text(isDeletable ? "Ta bort" : "Avboka")
                         .padding(8)
-                        .background(Color.brown)
+                        .background(isDeletable ? Color.red : Color.brown)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Avboka tid"),
-                          message: Text("Är du säker på att du vill \navboka denna tid? \nDatum: \(booking.selectedDate) \nTid: \(booking.selectedTime)"),
+                          message: Text("Är du säker på att du vill avboka denna tid? \nDatum: \(booking.selectedDate) \nTid: \(booking.selectedTime)"),
                           primaryButton: .destructive(Text("Ja")) {
-                        infoBookingsViewModel.cancelBooking(bookingId: booking.id!)
-                        }, secondaryButton: .cancel(Text("Avbryt")))
+                            infoBookingsViewModel.cancelBooking(bookingId: booking.id!)
+                            }, secondaryButton: .cancel(Text("Avbryt")))
                 }
             }
         }
@@ -105,6 +116,9 @@ struct BookingCardView: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 5)
+        .onAppear {
+            checkBookingStatus()
+        }
     }
 }
 

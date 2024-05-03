@@ -149,4 +149,34 @@ class InfoBookingsViewModel: ObservableObject {
             }
         }
     }
+    
+    // Add a method to check if the booking is deletable
+    func checkBookingDeletability(bookingId: String, completion: @escaping (Bool) -> Void) {
+        let userBookingsRef = db.collection("UsersBookings").document(Auth.auth().currentUser?.uid ?? "").collection("UserBookings").document(bookingId)
+        let allBookingsRef = db.collection("AllBookings").document(bookingId)
+        
+        allBookingsRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                completion(false)  // Exists in AllBookings, not deletable
+            } else {
+                userBookingsRef.getDocument { (document, error) in
+                    completion(document != nil && document!.exists)  // Exists only in UserBookings, deletable
+                }
+            }
+        }
+    }
+
+    // Add a method to delete from UsersBookings only
+    func deleteBookingFromUserOnly(bookingId: String) {
+        let userBookingsRef = db.collection("UsersBookings").document(Auth.auth().currentUser?.uid ?? "").collection("UserBookings").document(bookingId)
+        userBookingsRef.delete { error in
+            if let error = error {
+                print("Error removing booking from user's bookings: \(error.localizedDescription)")
+            } else {
+                DispatchQueue.main.async {
+                    self.bookings.removeAll { $0.id == bookingId }
+                }
+            }
+        }
+    }
 }
