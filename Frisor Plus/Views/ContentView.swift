@@ -26,15 +26,13 @@ struct ContentView: View {
                     Spacer()
                     Button(userViewModel.isLoggedIn ? "Mitt konto" : "Logga In") {
                         if userViewModel.isLoggedIn {
-                            userViewModel.checkIfUserIsAdmin { isAdmin in
-                                if isAdmin {
-                                    navigateToAdminView = true
-                                } else {
-                                    navigateToMyAccount = true
+                            navigateToMyAccount = true
+                        } else {
+                            userViewModel.loginAnonymously { success in
+                                if success {
+                                    navigateToLogin = true
                                 }
                             }
-                        } else {
-                            navigateToLogin = true
                         }
                     }
                     .padding(10)
@@ -97,9 +95,9 @@ struct ContentView: View {
                 }
                
                 List(servicesItem.serviceItems) { item in
-                    ServicesView(servicItems: item, navigateToCalendar: $navigateToCalendar, selectedService: $selectedService) { // Update this line
+                    ServicesView(servicItems: item, navigateToCalendar: $navigateToCalendar, selectedService: $selectedService, buttonAction: {
                         print("Boka-knapp tryckt för \(item.servicedName)")
-                    }
+                    }, userViewModel: userViewModel)
                 }
                 .navigationDestination(isPresented: $navigateToCalendar) {
                     CalendarAndTimeView(selectedService: selectedService)

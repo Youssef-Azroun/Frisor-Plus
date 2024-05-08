@@ -83,6 +83,10 @@ class UserViewModel: ObservableObject {
             try Auth.auth().signOut()
             self.isLoggedIn = false
             UserDefaults.standard.set(false, forKey: "isLoggedIn")
+            // Additional logic to handle anonymous users
+            if Auth.auth().currentUser?.isAnonymous == true {
+                Auth.auth().currentUser?.delete(completion: nil)
+            }
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -126,6 +130,17 @@ class UserViewModel: ObservableObject {
             UserDefaults.standard.set(false, forKey: "isLoggedIn")
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func loginAnonymously(completion: @escaping (Bool) -> Void) {
+        Auth.auth().signInAnonymously { authResult, error in
+            if let _ = authResult?.user, error == nil {
+                self.isLoggedIn = false  // Treat as not logged in for UI purposes
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
     }
 }
