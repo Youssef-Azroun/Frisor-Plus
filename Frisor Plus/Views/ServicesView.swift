@@ -12,6 +12,7 @@ struct ServicesView: View {
     @Binding var navigateToCalendar: Bool
     @Binding var selectedService: Services?
     var buttonAction: () -> Void // Closure för att hantera knapptryckningen
+    @ObservedObject var userViewModel: UserViewModel // Assuming you have a UserViewModel class
 
     var body: some View {
         HStack{
@@ -25,8 +26,18 @@ struct ServicesView: View {
             Spacer()
             
             Button("Boka") {
-                selectedService = servicItems
-                navigateToCalendar = true
+                if !userViewModel.isLoggedIn {
+                    userViewModel.loginAnonymously { success in
+                        if success {
+                            selectedService = servicItems
+                            navigateToCalendar = true
+                            print("Användaren är inte inloggad, men vi har loggat in anonymt")
+                        }
+                    }
+                } else {
+                    selectedService = servicItems
+                    navigateToCalendar = true
+                }
                 self.buttonAction()
             }
             .foregroundColor(.white)
