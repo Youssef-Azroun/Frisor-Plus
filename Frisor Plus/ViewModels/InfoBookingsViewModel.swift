@@ -150,7 +150,7 @@ class InfoBookingsViewModel: ObservableObject {
         }
     }
     
-    // Add a method to check if the booking is deletable
+    
     func checkBookingDeletability(bookingId: String, completion: @escaping (Bool) -> Void) {
         let userBookingsRef = db.collection("UsersBookings").document(Auth.auth().currentUser?.uid ?? "").collection("UserBookings").document(bookingId)
         let allBookingsRef = db.collection("AllBookings").document(bookingId)
@@ -166,7 +166,7 @@ class InfoBookingsViewModel: ObservableObject {
         }
     }
 
-    // Add a method to delete from UsersBookings only
+    
     func deleteBookingFromUserOnly(bookingId: String) {
         let userBookingsRef = db.collection("UsersBookings").document(Auth.auth().currentUser?.uid ?? "").collection("UserBookings").document(bookingId)
         userBookingsRef.delete { error in

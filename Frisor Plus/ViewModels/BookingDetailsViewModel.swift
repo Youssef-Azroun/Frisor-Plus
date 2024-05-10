@@ -40,7 +40,7 @@ class BookingDetailsViewModel: ObservableObject {
 
     func saveBookingDetails(booking: Bookings, completion: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()
-        let bookingID = UUID().uuidString // Generate a unique ID for the booking
+        let bookingID = UUID().uuidString
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let bookingDate = dateFormatter.date(from: booking.selectedDate) else {
@@ -80,6 +80,28 @@ class BookingDetailsViewModel: ObservableObject {
             } else {
                 print("User not logged in")
                 completion(false)
+            }
+        }
+    }
+
+    func saveBookingToAllBookingsOnly(booking: Bookings, completion: @escaping () -> Void) {
+        let db = Firestore.firestore()
+        let bookingID = UUID().uuidString // Generate a unique ID for the booking
+        let bookingData: [String: Any] = [
+            "email": booking.email,
+            "firstName": booking.firstName,
+            "lastName": booking.lastName,
+            "phoneNumber": booking.phoneNumber,
+            "price": booking.price,
+            "selectedDate": booking.selectedDate,
+            "selectedTime": booking.selectedTime,
+            "typeOfCut": booking.typeOfCut
+        ]
+        db.collection("AllBookings").document(bookingID).setData(bookingData) { error in
+            if let error = error {
+                print("Error saving booking to AllBookings: \(error.localizedDescription)")
+            } else {
+                completion()
             }
         }
     }
