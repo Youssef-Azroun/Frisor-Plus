@@ -12,7 +12,7 @@ struct ServicesView: View {
     @Binding var navigateToCalendar: Bool
     @Binding var selectedService: Services?
     var buttonAction: () -> Void // Closure för att hantera knapptryckningen
-    @ObservedObject var userViewModel: UserViewModel // Assuming you have a UserViewModel class
+    @ObservedObject var userViewModel: UserViewModel
 
     var body: some View {
         HStack{

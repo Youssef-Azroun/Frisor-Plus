@@ -43,7 +43,7 @@ struct BookingCardView: View {
     var booking: Bookings
     @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
     @State private var showAlert = false
-    @State private var isDeletable = false  // Add this line
+    @State private var isDeletable = false
 
     func checkBookingStatus() {
         infoBookingsViewModel.checkBookingDeletability(bookingId: booking.id!) { deletable in

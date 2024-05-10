@@ -147,26 +147,32 @@ struct BookingDetailsLogedInView: View {
                         showAlert = true
                     } else {
                         let booking = Bookings(
-                            email: userDetails?.email ?? "",
-                            firstName: userDetails?.firstName ?? "",
-                            lastName: userDetails?.lastName ?? "",
-                            phoneNumber: userDetails?.phoneNumber ?? 0,
+                            email: Auth.auth().currentUser?.isAnonymous == true ? email : (userDetails?.email ?? ""),
+                            firstName: Auth.auth().currentUser?.isAnonymous == true ? firstName : (userDetails?.firstName ?? ""),
+                            lastName: Auth.auth().currentUser?.isAnonymous == true ? lastName : (userDetails?.lastName ?? ""),
+                            phoneNumber: Auth.auth().currentUser?.isAnonymous == true ? (Int(phoneNumber) ?? 0) : (userDetails?.phoneNumber ?? 0),
                             price: price,
                             selectedDate: formattedDate,
                             selectedTime: selectedTime,
                             typeOfCut: typeOfCut
                         )
-                        viewModel.saveBookingDetails(booking: booking) { success in
-                            if success {
+                        if Auth.auth().currentUser?.isAnonymous == true {
+                            viewModel.saveBookingToAllBookingsOnly(booking: booking) {
                                 navigateToBookingConfirmationView = true
+                            }
+                        } else {
+                            viewModel.saveBookingDetails(booking: booking) { success in
+                                if success {
+                                    navigateToBookingConfirmationView = true
+                                }
                             }
                         }
                     }
                 }
             }
             .disabled(Auth.auth().currentUser?.isAnonymous == true && !isFormValid)
-            .padding(15)  // Increase padding for larger touch area
-            .frame(minWidth: 0, maxWidth: 200)  // Make the button expand to the full available width
+            .padding(15) 
+            .frame(minWidth: 0, maxWidth: 200) 
             .background(Auth.auth().currentUser?.isAnonymous == true && !isFormValid ? Color.gray : Color.brown)
             .cornerRadius(10.0)
             .foregroundColor(.white)
@@ -175,7 +181,11 @@ struct BookingDetailsLogedInView: View {
             }
             .padding(10)
             .navigationDestination(isPresented: $navigateToBookingConfirmationView) {
-                BookingConfirmationView(selectedDate: viewModel.formattedDate(selectedDate), selectedTime: selectedTime, price: price, typeOfCut: typeOfCut, userDetails: userDetails)
+                if Auth.auth().currentUser?.isAnonymous == true {
+                    BookingConfirmationView(selectedDate: viewModel.formattedDate(selectedDate), selectedTime: selectedTime, price: price, typeOfCut: typeOfCut, userDetails: User(email: email, firstName: firstName, lastName: lastName, phoneNumber: Int(phoneNumber) ?? 0))
+                } else {
+                    BookingConfirmationView(selectedDate: viewModel.formattedDate(selectedDate), selectedTime: selectedTime, price: price, typeOfCut: typeOfCut, userDetails: userDetails)
+                }
             }
             .onAppear {
                 viewModel.fetchUserDetails { user in
