@@ -27,7 +27,8 @@ struct BookingConfirmationView: View {
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 5)
-            
+            LottieView()
+                .frame(width: 10, height: 10)
             Text("Tack för din bokning hos oss Frisör plus.")
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)

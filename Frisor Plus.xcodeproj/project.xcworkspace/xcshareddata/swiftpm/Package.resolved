@@ -1,4 +1,5 @@
 {
+  "originHash" : "45bdfd70dfbbeb6f4b44db99cd0fc693c0c7941a5481b8f34e69fac0d0c931ce",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -91,6 +92,15 @@
       }
     },
     {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "769b88d83a42ca8d5572b020c96f47e3690b3796",
+        "version" : "4.4.3"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",
@@ -118,5 +128,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
