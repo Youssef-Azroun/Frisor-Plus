@@ -8,10 +8,39 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import AVFoundation
 
 class InfoBookingsViewModel: ObservableObject {
     @Published var bookings = [Bookings]()
     let db = Firestore.firestore()
+    var audioPlayer: AVAudioPlayer?
+
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "booking", withExtension: "wav") else {
+            print("Failed to find sound file.")
+            return
+        }
+        print("Sound file found at \(url)")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Could not load file: \(error)")
+        }
+    }
+    
+    func playRemoveSound() {
+        guard let url = Bundle.main.url(forResource: "nobooking", withExtension: "wav") else {
+            print("Failed to find remove sound file.")
+            return
+        }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Could not load remove sound file: \(error)")
+        }
+    }
     
     
     func cancelBooking(bookingId: String) {
@@ -61,6 +90,7 @@ class InfoBookingsViewModel: ObservableObject {
             }
             snapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
+                    self.playSound()  // Play sound on addition
                     let data = diff.document.data()
                     let newBooking = Bookings(
                         id: diff.document.documentID,
@@ -76,6 +106,7 @@ class InfoBookingsViewModel: ObservableObject {
                     self.bookings.append(newBooking)
                 }
                 if (diff.type == .removed) {
+                    self.playRemoveSound()  // Play remove sound on deletion
                     if let index = self.bookings.firstIndex(where: { $0.id == diff.document.documentID }) {
                         self.bookings.remove(at: index)
                     }
