@@ -106,7 +106,7 @@ class BookingDetailsViewModel: ObservableObject {
         }
     }
 
-    func fetchBookingsForDate(date: String, completion: @escaping ([String]) -> Void) {
+        func fetchBookingsForDate(date: String, completion: @escaping ([String]) -> Void) {
         let db = Firestore.firestore()
         db.collection("AllBookings").whereField("selectedDate", isEqualTo: date).getDocuments { (querySnapshot, error) in
             var bookedTimes: [String] = []

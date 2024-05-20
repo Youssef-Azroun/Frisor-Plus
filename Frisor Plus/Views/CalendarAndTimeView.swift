@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct CalendarAndTimeView: View {
     @State private var selectedDate = Date()
@@ -38,11 +39,8 @@ struct CalendarAndTimeView: View {
                 .padding()
                 .background(Color.gray)
                 .cornerRadius(15)
-                .onAppear {
-                    let formattedDate = BookingDetailsViewModel().formattedDate(selectedDate)
-                    BookingDetailsViewModel().fetchBookingsForDate(date: formattedDate) { times in
-                        self.bookedTimes = times
-                    }
+                .onChange(of: selectedDate) { _ in
+                    updateBookedTimes()
                 }
             if dayOfWeek == 1 {
                 Spacer()
@@ -80,6 +78,29 @@ struct CalendarAndTimeView: View {
             }
         }
         .padding()
+        .onAppear {
+            updateBookedTimes()
+        }
+    }
+    
+    private func updateBookedTimes() {
+        let formattedDate = BookingDetailsViewModel().formattedDate(selectedDate)
+        let db = Firestore.firestore()
+        db.collection("AllBookings").whereField("selectedDate", isEqualTo: formattedDate)
+            .addSnapshotListener { querySnapshot, error in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching snapshots: \(error!)")
+                    return
+                }
+                var newBookedTimes: [String] = []
+                for document in snapshot.documents {
+                    let data = document.data()
+                    if let time = data["selectedTime"] as? String {
+                        newBookedTimes.append(time)
+                    }
+                }
+                self.bookedTimes = newBookedTimes
+            }
     }
 }
 
