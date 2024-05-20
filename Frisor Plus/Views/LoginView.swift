@@ -11,6 +11,8 @@ struct LoginView: View {
     @State private var navigateToAdminView = false
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var infoBookingsViewModel: InfoBookingsViewModel
+    @EnvironmentObject var bookingDetailsViewModel: BookingDetailsViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var navigateToCreateAccount = false
@@ -66,22 +68,31 @@ struct LoginView: View {
             Button("Logga in") {
                 userViewModel.loginUser(email: email, password: password) { success, message in
                     if success {
-                        // Check if the user is an admin
                         userViewModel.checkIfUserIsAdmin { isAdmin in
                             if isAdmin {
-                                // Subscribe to admin topic
                                 Messaging.messaging().subscribe(toTopic: "admin")
-                                navigateToAdminView = true // Set to navigate to AdminView
+                                // Explicitly navigate to AdminStartPage
+                                if let window = UIApplication.shared.windows.first {
+                                    let newInfoBookingsViewModel = InfoBookingsViewModel()
+                                    let newBookingDetailsViewModel = BookingDetailsViewModel()
+                                    let adminView = AdminView()
+                                        .environmentObject(newInfoBookingsViewModel)
+                                        .environmentObject(userViewModel)
+                                        .environmentObject(newBookingDetailsViewModel)
+                                    window.rootViewController = UIHostingController(rootView: adminView)
+                                    window.makeKeyAndVisible()
+                                }
                             } else {
                                 presentationMode.wrappedValue.dismiss()
                             }
                         }
                     } else {
-                        if message == "Please verify your email before logging in." {
+                         if message == "Please verify your email before logging in." {
                             toastMessage = "Vänligen verifiera din e-postadress innan du loggar in."
                         } else {
                             toastMessage = "Något har gått fel. Antingen är din e-postadress eller lösenord felaktigt."
                         }
+                       // toastMessage = message
                         showToast = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             showToast = false

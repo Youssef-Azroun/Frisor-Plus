@@ -25,6 +25,7 @@
 		31B2E2262BF4C560001C45DA /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2E2252BF4C560001C45DA /* NetworkMonitor.swift */; };
 		31B2E22C2BF62C89001C45DA /* booking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31B2E22B2BF62C89001C45DA /* booking.wav */; };
 		31B2E22E2BF62C9B001C45DA /* nobooking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 31B2E22D2BF62C9B001C45DA /* nobooking.wav */; };
+		31B2E2322BF8E5A7001C45DA /* AdminStartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2E2312BF8E5A7001C45DA /* AdminStartPage.swift */; };
 		31C946832BC3DEB4003ACF12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */; };
 		31C946862BC3DFE4003ACF12 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946852BC3DFE4003ACF12 /* FirebaseAnalytics */; };
 		31C946882BC3DFE4003ACF12 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31C946872BC3DFE4003ACF12 /* FirebaseAuth */; };
@@ -90,6 +91,7 @@
 		31B2E2252BF4C560001C45DA /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		31B2E22B2BF62C89001C45DA /* booking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = booking.wav; sourceTree = "<group>"; };
 		31B2E22D2BF62C9B001C45DA /* nobooking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nobooking.wav; sourceTree = "<group>"; };
+		31B2E2312BF8E5A7001C45DA /* AdminStartPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStartPage.swift; sourceTree = "<group>"; };
 		31C946822BC3DEB4003ACF12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31E9E8602BC77CAD00DA41EB /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
 		31E9E8622BCA581300DA41EB /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				319FE2042BDCF3EF00601606 /* BookingDetailsLogedInView.swift */,
 				5F9C66892BDFBF15006974DC /* BookingConfirmationView.swift */,
 				5F6F8A0F2BF3790400347A66 /* LottieView.swift */,
+				31B2E2312BF8E5A7001C45DA /* AdminStartPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				319FE2012BD50AD900601606 /* EditUserDetailsView.swift in Sources */,
 				5F9C667A2BCFF30E006974DC /* Services.swift in Sources */,
 				5F9C66822BD2742C006974DC /* InfoBookingsViewModel.swift in Sources */,
+				31B2E2322BF8E5A7001C45DA /* AdminStartPage.swift in Sources */,
 				5F9C66862BD7CD0B006974DC /* AdminBookingsCardView.swift in Sources */,
 				5F9C667C2BCFF489006974DC /* ServicesItem.swift in Sources */,
 				314C12A92BC40BDE009BC923 /* CreateAccountView.swift in Sources */,
