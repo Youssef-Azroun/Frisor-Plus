@@ -22,6 +22,7 @@ struct Frisor_PlusApp: App {
     @StateObject var userViewModel = UserViewModel() // Create an instance of UserViewModel
     @StateObject var infoBookingsViewModel = InfoBookingsViewModel()
     @StateObject var bookingDetailsViewModel = BookingDetailsViewModel()
+    @StateObject var networkMonitor = NetworkMonitor()
 
     var body: some Scene {
         WindowGroup {
@@ -29,6 +30,7 @@ struct Frisor_PlusApp: App {
                 .environmentObject(userViewModel) // Pass UserViewModel as an environment object
                 .environmentObject(infoBookingsViewModel)
                 .environmentObject(bookingDetailsViewModel)
+                .environmentObject(networkMonitor) // Pass NetworkMonitor as an environment object
         }
     }
 }
